@@ -1,3 +1,45 @@
-.note.template {
+.flick.template {
   display: none;
+}
+
+.flick {
+  border: 1px solid #ddd;
+  clear: both;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  transition: 0.25s;
+}
+
+.flick + .flick {
+  border-top: 0;
+}
+
+/*Target move up from a specific li. In this case, the first child. We want to let the user know that they can't move up any further*/
+.flick:first-child button.move-up, .flick:last-child button.move-down {
+  background-color: #ddd;
+  text-color: #eee;
+  cursor: not-allowed;
+}
+
+.flick-name {
+  flex-grow: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: calc(100% - 200px);
+  margin-right: 1rem;
+}
+
+.actions.button-group {
+  margin-bottom: 0;
+}
+
+.actions.button {
+  padding: .65em, 0.8em;
+}
+
+.fav {
+  background-color: #ffc656;
+  border-color: #ffa807;
 }
