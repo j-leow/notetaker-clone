@@ -11,7 +11,7 @@ class App {
       .addEventListener('submit', this.addEntryViaForm.bind(this))
     document
       .querySelector('#search')
-      .addEventListener('keyup', this.searchEntry.bind(this))
+      .addEventListener('keyup', this.searchEntry.bind(this, this.entry))
     this.load()
   }
 
@@ -46,6 +46,7 @@ class App {
       id: this.max + 1,
       name: f.entryName.value,
       fav: false,
+      category: f.categoryName.value,
     }
 
     this.addEntry(entry)
@@ -69,6 +70,10 @@ class App {
     item
       .querySelector('.entry-name')
       .setAttribute('title', entry.name)
+
+    item
+      .querySelector('.entry-category')
+      .textContent = entry.category
 
     if (entry.fav) {
       item.classList.add('fav')
@@ -152,7 +157,7 @@ class App {
     }
   }
 
-  searchEntry(ev) {
+  searchEntry(entry, ev) {
     for (let i = 0; i < this.entries.length; i++) {
       const currentSearch = ev.target.value.toLowerCase() // text in search bar
       const listItems = document.getElementsByClassName('entry') // list item elements

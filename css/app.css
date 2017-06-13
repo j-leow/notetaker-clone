@@ -45,3 +45,8 @@
   background-color: #ffc656;
   border-color: #ffa807;
 }
+
+.input-group-label {
+  background-color: #fff;
+  border: none;
+}
