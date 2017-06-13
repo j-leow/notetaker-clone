@@ -1,8 +1,8 @@
-.flick.template {
+.entry.template {
   display: none;
 }
 
-.flick {
+.entry {
   border: 1px solid #ddd;
   clear: both;
   display: flex;
@@ -11,18 +11,20 @@
   transition: 0.25s;
 }
 
-.flick + .flick {
+.entry+.entry {
   border-top: 0;
 }
 
+
 /*Target move up from a specific li. In this case, the first child. We want to let the user know that they can't move up any further*/
-.flick:first-child button.move-up, .flick:last-child button.move-down {
+
+.entry:first-child button.move-up, .entry:last-child button.move-down {
   background-color: #ddd;
   text-color: #eee;
   cursor: not-allowed;
 }
 
-.flick-name {
+.entry-name {
   flex-grow: 1;
   white-space: nowrap;
   text-overflow: ellipsis;

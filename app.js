@@ -9,7 +9,9 @@ class App {
     document
       .querySelector(selectors.formSelector)
       .addEventListener('submit', this.addEntryViaForm.bind(this))
-
+    document
+      .querySelector('#search')
+      .addEventListener('keyup', this.searchEntry.bind(this))
     this.load()
   }
 
@@ -149,8 +151,20 @@ class App {
       this.edit(entry, ev)
     }
   }
-}
 
+  searchEntry(ev) {
+    for (let i = 0; i < this.entries.length; i++) {
+      const currentSearch = ev.target.value.toLowerCase() // text in search bar
+      const listItems = document.getElementsByClassName('entry') // list item elements
+      const currentListItem = listItems[i]
+      if (!currentListItem.textContent.toLowerCase().includes(currentSearch)) {
+        currentListItem.style.display = 'none'
+      } else {
+        currentListItem.style.display = 'flex'
+      }
+    }
+  }
+}
 const app = new App({
   formSelector: '#entry-form',
   listSelector: '#entry-list',

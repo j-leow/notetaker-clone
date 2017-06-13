@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Note Taker</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/app.css">
-  </head>
-  <body>
-    <div class="row">
-      <div class="medium-8 medium-offset-2 column">
-        <h1>Notes To Self</h1>
-        <form id="entry-form">
-          <div class="input-group">
-            <input
-              type="text"
-              class="input-group-field"
-              name="entryName"
-              placeholder="Write an entry."
-              autofocus
-              required
-            >
-            <div class="input-group-button">
-              <button
-                class="success button"
-                type="submit"
-              >
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Note Taker</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <div class="row">
+    <div class="medium-8 medium-offset-2 column">
+      <h1>Notes To Self</h1>
+      <form id="entry-form">
+        <div class="input-group">
+          <input type="text" class="input-group-field" name="entryName" placeholder="Write an entry." autofocus required>
+          <div class="input-group-button">
+            <button class="success button" type="submit">
                 <i
                   class="fa fa-plus"
                   aria-hidden="true"
                 ></i>
               </button>
-            </div>
           </div>
-        </form>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-2 columns">
+      <div class="search input-group">
+        <input type="text" class="input-group-field" name="search" placeholder="Search..." autofocus>
+        <div class="input-group-button">
+          <button id="search" class="button" type="search">
+            <i
+            class="fa fa-search"
+            aria-hidden="true"
+            >
+          </i>
+        </button>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="medium-8 medium-offset-2 column">
-        <ul class="no-bullet" id="entry-list"></ul>
-      </div>
+  <div class="row">
+    <div class="medium-8 medium-offset-2 column">
+      <ul class="no-bullet" id="entry-list"></ul>
     </div>
+  </div>
 
-    <li class="entry template">
-      <span class="entry-name"></span>
-      <span class="actions button-group">
+  <li class="entry template">
+    <span class="entry-name"></span>
+    <span class="actions button-group">
         <button class="edit button">
           <i
             class="fa fa-pencil"
@@ -61,18 +70,6 @@
             aria-hidden="true"
           ></i>
         </button>
-        <button class="move-up button">
-          <i
-            class="fa fa-arrow-up"
-            aria-hidden="true"
-          ></i>
-        </button>
-        <button class="move-down button">
-          <i
-            class="fa fa-arrow-down"
-            aria-hidden="true"
-          ></i>
-        </button>
         <button class="remove button alert">
           <i
             class="fa fa-trash-o"
@@ -80,8 +77,9 @@
           ></i>
         </button>
       </span>
-    </li>
+  </li>
 
-    <script src="app.js"></script>
-  </body>
+  <script src="app.js"></script>
+</body>
+
 </html>
