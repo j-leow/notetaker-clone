@@ -46,7 +46,7 @@ class App {
       id: this.max + 1,
       name: f.entryName.value,
       fav: false,
-      category: f.categoryName.value,
+      category: f.category.value,
     }
 
     this.addEntry(entry)
@@ -64,20 +64,24 @@ class App {
     const item = this.template.cloneNode(true)
     item.classList.remove('template')
     item.dataset.id = entry.id
-    item
-      .querySelector('.entry-name')
-      .textContent = entry.name
-    item
-      .querySelector('.entry-name')
-      .setAttribute('title', entry.name)
-
-    item
-      .querySelector('.entry-category')
-      .textContent = entry.category
 
     if (entry.fav) {
       item.classList.add('fav')
     }
+
+    if (entry.category) {
+      item
+        .querySelector('.entry-category')
+        .textContent = event.category
+    }
+
+    item
+      .querySelector('.entry-name')
+      .textContent = entry.name
+
+    item
+      .querySelector('.entry-name')
+      .setAttribute('title', entry.name)
 
     item
       .querySelector('.entry-name')
@@ -128,6 +132,7 @@ class App {
   edit(entry, ev) {
     const listItem = ev.target.closest('.entry')
     const nameField = listItem.querySelector('.entry-name')
+    const categoryField = listItem.querySelector('.entry-category')
     const btn = listItem.querySelector('.edit.button')
 
     const icon = btn.querySelector('i.fa')
@@ -135,15 +140,19 @@ class App {
     if (nameField.isContentEditable) {
       // make it no longer editable
       nameField.contentEditable = false
+      categoryField.contentEditable = false
       icon.classList.remove('fa-check')
       icon.classList.add('fa-pencil')
       btn.classList.remove('success')
 
       // save changes
       entry.name = nameField.textContent
+      entry.category = categoryField.textContent
       this.save()
+
     } else {
       nameField.contentEditable = true
+      categoryField.contentEditable = true
       nameField.focus()
       icon.classList.remove('fa-pencil')
       icon.classList.add('fa-check')

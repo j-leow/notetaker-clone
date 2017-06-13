@@ -17,33 +17,39 @@
     <div class="medium-8 medium-offset-2 column">
       <h1>To Do List</h1>
       <form id="entry-form">
-        <div class="input-group">
-          <input
-            type="text"
-            class="input-group-field"
-            name="entryName"
-            placeholder="Enter a task for today."
-            autofocus
-            required>
-          <div class="input-group-button">
-            <button class="success button" type="submit">
-                <i
-                  class="fa fa-plus"
-                  aria-hidden="true"
-                ></i>
-              </button>
+        <div class="row">
+          <div class="small-6 column">
+            <input
+              type="text"
+              class="input-group-field"
+              name="entryName"
+              placeholder="Enter a task for today."
+              autofocus
+              required>
+          </div>
+
+          <div class="small-4 column">
+            <select name="category">
+              <option value="">-- Select Category --</option>
+              <option value="school">School</option>
+              <option value="work">Work</option>
+              <option value="leisure">Leisure</option>
+              <option value="errands">Errands</option>
+              <option value="Misc">Misc.</option>
+            </select>
+          </div>
+
+          <div class="small-2 column">
+          <button class="success button" type="submit">
+              <i
+                class="fa fa-plus"
+                aria-hidden="true"
+              ></i>
+            </button>
           </div>
         </div>
 
-        <div class="input-group">
-          <input
-            type="text"
-            class="input-group-field"
-            name="categoryName"
-            placeholder="Enter a category."
-            autofocus
-            required>
-        </div>
+
       </form>
     </div>
   </div>
@@ -79,6 +85,7 @@
 
   <li class="entry template">
     <span class="entry-name"></span>
+    <span class="entry-category"></span>
     <span class="actions button-group">
         <button class="edit button">
           <i
