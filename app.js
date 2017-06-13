@@ -88,6 +88,12 @@ class App {
       .addEventListener('keypress', this.saveOnEnter.bind(this, entry))
 
     item
+      .querySelector('button.move-up')
+      .addEventListener('click', this.moveUp.bind(this, entry))
+    item
+      .querySelector('button.move-down')
+      .addEventListener('click', this.moveDown.bind(this, entry))
+    item
       .querySelector('button.remove')
       .addEventListener('click', this.removeEntry.bind(this))
     item
@@ -98,6 +104,40 @@ class App {
       .addEventListener('click', this.edit.bind(this, entry))
 
     return item
+  }
+
+  moveDown(entry, ev) {
+    const listItem = ev.target.closest('.entry')
+
+    const index = this.entries.findIndex((currentEntry, i) => {
+      return currentEntry.id === entry.id
+    })
+
+    if (index < this.entries.length - 1) {
+      this.list.insertBefore(listItem.nextElementSibling, listItem)
+
+      const nextEntry = this.entries[index + 1]
+      this.entries[index + 1] = entry
+      this.entries[index] = nextEntry
+      this.save()
+    }
+  }
+
+  moveUp(entry, ev) {
+    const listItem = ev.target.closest('.entry')
+
+    const index = this.entries.findIndex((currentEntry, i) => {
+      return currentEntry.id === entry.id
+    })
+
+    if (index > 0) {
+      this.list.insertBefore(listItem, listItem.previousElementSibling)
+
+      const previousEntry = this.entries[index - 1]
+      this.entries[index - 1] = entry
+      this.entries[index] = previousEntry
+      this.save()
+    }
   }
 
   removeEntry(ev) {
