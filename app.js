@@ -72,7 +72,7 @@ class App {
     if (entry.category) {
       item
         .querySelector('.entry-category')
-        .textContent = event.category
+        .textContent = entry.category
     }
 
     item
